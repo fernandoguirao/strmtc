@@ -1,0 +1,496 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="PUID" sid="3135643539461835" static="0" type="number">0</variable>
+        <variable constant="1" name="SPAWNX" sid="9685906282399814" static="0" type="number">321</variable>
+        <variable constant="1" name="SPAWNY" sid="2826199967580587" static="0" type="number">760</variable>
+        <variable constant="0" name="Angulo" sid="9662210153354986" static="0" type="number">0</variable>
+        <event-block sid="9728562300941447">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="9236939333325246" type="System" />
+                <condition id="-10" name="For" sid="8957809800986085" type="System">
+                    <param id="0" name="Name">&quot;Y&quot;</param>
+                    <param id="1" name="Start index">0</param>
+                    <param id="2" name="End index">6</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="6694941494284089">
+                    <conditions>
+                        <condition id="-10" name="For" sid="631555847720933" type="System">
+                            <param id="0" name="Name">&quot;X&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">6</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="4993167538948156" type="System">
+                            <param id="0" name="Object to create">Planeta</param>
+                            <param id="1" name="Layer">2</param>
+                            <param id="2" name="X">(SPAWNX + (loopIndex(&quot;X&quot;))*(Planeta.Width + 12))</param>
+                            <param id="3" name="Y">(SPAWNY - (loopIndex(&quot;Y&quot;))*(Planeta.Width + 12))</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="9317625507688001" type="System">
+                            <param id="0" name="Object to create">Limite</param>
+                            <param id="1" name="Layer">3</param>
+                            <param id="2" name="X">(SPAWNX + (loopIndex(&quot;X&quot;))*(Planeta.Width + 12))</param>
+                            <param id="3" name="Y">(SPAWNY - (loopIndex(&quot;Y&quot;))*(Planeta.Width + 12))</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="1622144057203389" type="Planeta">
+                            <param id="0" name="Instance variable">Color</param>
+                            <param id="1" name="Value">floor(Random(1,6))</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="183975077358112">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="6840127218974036" type="System" />
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="6058602151448663" type="Planeta">
+                    <param id="0" name="Frame number">(Planeta.Color-1)</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="1986277813204993">
+                    <conditions>
+                        <condition behavior="DragDrop" id="0" name="Is dragging" sid="2849687203652948" type="Limite" />
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set at XY" sid="7020032742681691" type="PlanetPositions">
+                            <param id="0" name="X">2</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">Limite.X</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="2775254110881417" type="PlanetPositions">
+                            <param id="0" name="X">2</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Value">Limite.Y</param>
+                        </action>
+                        <action id="0" name="Call function" sid="481050190474463" type="funcion">
+                            <param id="0" name="Name">&quot;joystick&quot;</param>
+                            <param id="1" name="Parameter {n}">Limite.UID</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="2301137909699052">
+            <conditions>
+                <condition id="7" name="Cursor is over object" sid="2298756100630745" type="Mouse">
+                    <param id="0" name="Object">Planeta</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="5084994757671002" type="Planeta">
+                    <param id="0" name="Instance variable">IsMatched</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="3409274741080007" type="Planeta">
+                    <param id="0" name="Frame number">(Planeta.Color-1)+6</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4732651882986818">
+            <conditions>
+                <condition id="-8" name="Is boolean instance variable set" sid="4178875657202141" type="Planeta">
+                    <param id="0" name="Instance variable">IsMatched</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="9253771999680773" type="Planeta">
+                    <param id="0" name="Frame number">(Planeta.Color-1)+6</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Drag start: planeta 0,0 y bloques laterales</comment>
+        <event-block sid="6253884593907158">
+            <conditions>
+                <condition behavior="DragDrop" id="1" name="On drag start" sid="5362701701833705" type="Limite" />
+            </conditions>
+            <actions>
+                <action id="3" name="Set at XY" sid="1729460927408566" type="PlanetPositions">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Y">0</param>
+                    <param id="2" name="Value">Limite.X</param>
+                </action>
+                <action id="3" name="Set at XY" sid="3002031476580604" type="PlanetPositions">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Y">1</param>
+                    <param id="2" name="Value">Limite.Y</param>
+                </action>
+                <action id="-3" name="Set position" sid="6131198068441892" type="BottomBlock">
+                    <param id="0" name="X">PlanetPositions.At(0,0) + Planeta.Width/2</param>
+                    <param id="1" name="Y">(PlanetPositions.At(0,1) + (Planeta.Height/2) + (Planeta.Width+12))</param>
+                </action>
+                <action id="-3" name="Set position" sid="3950827511812456" type="TopBlock">
+                    <param id="0" name="X">PlanetPositions.At(0,0)+Planeta.Width/2</param>
+                    <param id="1" name="Y">PlanetPositions.At(0,1) - (Planeta.Width+12) + Planeta.Height/2</param>
+                </action>
+                <action id="-3" name="Set position" sid="9780869807731788" type="LeftBlock">
+                    <param id="0" name="X">PlanetPositions.At(0,0) - (Planeta.Width+12) + Planeta.Width/2</param>
+                    <param id="1" name="Y">PlanetPositions.At(0,1) + Planeta.Height/2</param>
+                </action>
+                <action id="-3" name="Set position" sid="2827640005756485" type="RightBlock">
+                    <param id="0" name="X">PlanetPositions.At(0,0) + (Planeta.Width+12) + Planeta.Width/2</param>
+                    <param id="1" name="Y">PlanetPositions.At(0,1) + Planeta.Height/2</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="2996313241058307">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="1466573837160643" type="Limite">
+                            <param id="0" name="Object">Planeta</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="6812670904609049" type="System">
+                            <param id="0" name="Variable">PUID</param>
+                            <param id="1" name="Value">Planeta.UID</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Detectamos dirección</comment>
+        <event-block sid="260981531668014">
+            <conditions>
+                <condition id="0" name="On function" sid="5013869748344784" type="funcion">
+                    <param id="0" name="Name">&quot;joystick&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block any="1" sid="256515415406611">
+                    <conditions>
+                        <condition id="1" name="Compare at XY" sid="7726223428456587" type="PlanetPositions">
+                            <param id="0" name="X">2</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Comparison">2</param>
+                            <param id="3" name="Value">PlanetPositions.At(0,0) - 20</param>
+                        </condition>
+                        <condition id="1" name="Compare at XY" sid="9147313750202365" type="PlanetPositions">
+                            <param id="0" name="X">2</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Comparison">4</param>
+                            <param id="3" name="Value">PlanetPositions.At(0,1) + 20</param>
+                        </condition>
+                        <condition id="1" name="Compare at XY" sid="5810151172659272" type="PlanetPositions">
+                            <param id="0" name="X">2</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Comparison">2</param>
+                            <param id="3" name="Value">PlanetPositions.At(0,1) - 20</param>
+                        </condition>
+                        <condition id="1" name="Compare at XY" sid="7251974293780536" type="PlanetPositions">
+                            <param id="0" name="X">2</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Comparison">4</param>
+                            <param id="3" name="Value">PlanetPositions.At(0,0) + 20</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="6618912211933637" type="System">
+                            <param id="0" name="Variable">Angulo</param>
+                            <param id="1" name="Value">round(angle(PlanetPositions.At(2,0),PlanetPositions.At(2,1),PlanetPositions.At(0,0), PlanetPositions.At(0,1)))</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="8821723620260881">
+                            <conditions>
+                                <condition id="-21" name="Is between values" sid="7719183575183586" type="System">
+                                    <param id="0" name="Value">Angulo</param>
+                                    <param id="1" name="Lower bound">46</param>
+                                    <param id="2" name="Upper bound">135</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set at XY" sid="9585391391366601" type="PlanetPositions">
+                                    <param id="0" name="X">1</param>
+                                    <param id="1" name="Y">0</param>
+                                    <param id="2" name="Value">TopBlock.X - Planeta.Width/2</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="7964535236608148" type="PlanetPositions">
+                                    <param id="0" name="X">1</param>
+                                    <param id="1" name="Y">1</param>
+                                    <param id="2" name="Value">TopBlock.Y - Planeta.Height/2</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="9330326062510437">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="6021256478151442" type="Planeta">
+                                            <param id="0" name="Object">TopBlock</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="5250842165102678" type="funcion">
+                                            <param id="0" name="Name">&quot;SwapPlanets&quot;</param>
+                                            <param id="1" name="Parameter {n}">funcion.param(0){###}Planeta.UID</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="2080853096998543">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="7430593502092045" type="System" />
+                                <condition id="-21" name="Is between values" sid="4277239645847436" type="System">
+                                    <param id="0" name="Value">Angulo</param>
+                                    <param id="1" name="Lower bound">136</param>
+                                    <param id="2" name="Upper bound">180</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set at XY" sid="3881047257208773" type="PlanetPositions">
+                                    <param id="0" name="X">1</param>
+                                    <param id="1" name="Y">0</param>
+                                    <param id="2" name="Value">RightBlock.X - Planeta.Width/2</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="3369777959585502" type="PlanetPositions">
+                                    <param id="0" name="X">1</param>
+                                    <param id="1" name="Y">1</param>
+                                    <param id="2" name="Value">RightBlock.Y - Planeta.Height/2</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="4193390326803518">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="2300280082673306" type="Planeta">
+                                            <param id="0" name="Object">RightBlock</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="7445217214883394" type="funcion">
+                                            <param id="0" name="Name">&quot;SwapPlanets&quot;</param>
+                                            <param id="1" name="Parameter {n}">funcion.param(0){###}Planeta.UID</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="2607141277733221">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="2904591941881598" type="System" />
+                                <condition id="-21" name="Is between values" sid="1574306673238067" type="System">
+                                    <param id="0" name="Value">Angulo</param>
+                                    <param id="1" name="Lower bound">-180</param>
+                                    <param id="2" name="Upper bound">-135</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set at XY" sid="1489990769971501" type="PlanetPositions">
+                                    <param id="0" name="X">1</param>
+                                    <param id="1" name="Y">0</param>
+                                    <param id="2" name="Value">RightBlock.X - Planeta.Width/2</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="8080068269801483" type="PlanetPositions">
+                                    <param id="0" name="X">1</param>
+                                    <param id="1" name="Y">1</param>
+                                    <param id="2" name="Value">RightBlock.Y - Planeta.Height/2</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="8259582821462812">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="9266195542724877" type="Planeta">
+                                            <param id="0" name="Object">RightBlock</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="7275111548991189" type="funcion">
+                                            <param id="0" name="Name">&quot;SwapPlanets&quot;</param>
+                                            <param id="1" name="Parameter {n}">funcion.param(0){###}Planeta.UID</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="5943754096515104">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="6665130118948501" type="System" />
+                                <condition id="-21" name="Is between values" sid="1276001892516077" type="System">
+                                    <param id="0" name="Value">Angulo</param>
+                                    <param id="1" name="Lower bound">-134</param>
+                                    <param id="2" name="Upper bound">-45</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set at XY" sid="487677814793464" type="PlanetPositions">
+                                    <param id="0" name="X">1</param>
+                                    <param id="1" name="Y">0</param>
+                                    <param id="2" name="Value">BottomBlock.X - Planeta.Width/2</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="4557701477774227" type="PlanetPositions">
+                                    <param id="0" name="X">1</param>
+                                    <param id="1" name="Y">1</param>
+                                    <param id="2" name="Value">BottomBlock.Y - Planeta.Height/2</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="4010805050506005">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="8568523020228319" type="Planeta">
+                                            <param id="0" name="Object">BottomBlock</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="9814644035124757" type="funcion">
+                                            <param id="0" name="Name">&quot;SwapPlanets&quot;</param>
+                                            <param id="1" name="Parameter {n}">funcion.param(0){###}Planeta.UID</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="3864967872802903">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="5312223347254378" type="System" />
+                                <condition id="-21" name="Is between values" sid="1547689960071346" type="System">
+                                    <param id="0" name="Value">Angulo</param>
+                                    <param id="1" name="Lower bound">-44</param>
+                                    <param id="2" name="Upper bound">45</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set at XY" sid="4175948660170469" type="PlanetPositions">
+                                    <param id="0" name="X">1</param>
+                                    <param id="1" name="Y">0</param>
+                                    <param id="2" name="Value">LeftBlock.X - Planeta.Width/2</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="4155546856556337" type="PlanetPositions">
+                                    <param id="0" name="X">1</param>
+                                    <param id="1" name="Y">1</param>
+                                    <param id="2" name="Value">LeftBlock.Y - Planeta.Height/2</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="9475995434570038">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="4033023178485385" type="Planeta">
+                                            <param id="0" name="Object">LeftBlock</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="4639271748588354" type="funcion">
+                                            <param id="0" name="Name">&quot;SwapPlanets&quot;</param>
+                                            <param id="1" name="Parameter {n}">funcion.param(0){###}Planeta.UID</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="7313310551262727">
+            <conditions>
+                <condition behavior="DragDrop" id="2" name="On drop" sid="5608477837504136" type="Limite" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="5318856804070151" type="Limite">
+                    <param id="0" name="X">PlanetPositions.At(0,0)</param>
+                    <param id="1" name="Y">PlanetPositions.At(0,1)</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Movemos fichas</comment>
+        <event-block sid="85540904593514">
+            <conditions>
+                <condition id="0" name="On function" sid="7657375673602556" type="funcion">
+                    <param id="0" name="Name">&quot;SwapPlanets&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="4787611378237789">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="615797243885745" type="Limite">
+                            <param id="0" name="Unique ID">funcion.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="DragDrop" id="1" name="Drop" sid="3640076006659861" type="Limite" />
+                        <action id="-3" name="Set position" sid="2471308339438511" type="Limite">
+                            <param id="0" name="X">PlanetPositions.At(0,0)</param>
+                            <param id="1" name="Y">PlanetPositions.At(0,1)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2272473375602544">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="3174283464425098" type="Planeta">
+                            <param id="0" name="Unique ID">PUID</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="4011139520118018" type="Planeta">
+                            <param id="0" name="X">-80</param>
+                            <param id="1" name="Y">-80</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3243347987388871">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="1429037016029893" type="Planeta">
+                            <param id="0" name="Unique ID">funcion.Param(1)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="7672088243957951" type="Planeta">
+                            <param id="0" name="Target is">0</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">PlanetPositions.At(0,0)</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="8998231849960032" type="Planeta">
+                            <param id="0" name="Target is">1</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">PlanetPositions.At(0,1)</param>
+                        </action>
+                        <action behavior="LiteTween" id="10" name="Start" sid="6745573274542691" type="Planeta">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4065533333594684">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="9376492879888266" type="Planeta">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="X co-ordinate">-80</param>
+                        </condition>
+                        <condition id="-2" name="Compare Y" sid="2167916986756463" type="Planeta">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Y co-ordinate">-80</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="2154724364690618" type="Planeta">
+                            <param id="0" name="X">PlanetPositions.At(0,0)</param>
+                            <param id="1" name="Y">PlanetPositions.At(0,1)</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="5406887475584501" type="Planeta">
+                            <param id="0" name="Target is">0</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">PlanetPositions.At(1,0)</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="2339992978442509" type="Planeta">
+                            <param id="0" name="Target is">1</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">PlanetPositions.At(1,1)</param>
+                        </action>
+                        <action behavior="LiteTween" id="10" name="Start" sid="417389478827672" type="Planeta">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">0</param>
+                        </action>
+                        <action id="0" name="Clear" sid="2775095518544293" type="PlanetPositions" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>
