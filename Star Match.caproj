@@ -14,6 +14,7 @@
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Funstorm Ltd" id="chromeconsole" version="0.100000001">Chrome Console</plugin>
     </used-plugins>
@@ -161,6 +162,9 @@
         </object-type>
         <object-type name="ChromeConsole" sid="720321261157874">
             <plugin id="chromeconsole" />
+        </object-type>
+        <object-type name="points" sid="7330873702903178">
+            <plugin id="Text" />
         </object-type>
     </object-folder>
     <families />
