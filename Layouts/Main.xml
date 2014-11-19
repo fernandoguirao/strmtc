@@ -147,7 +147,7 @@
                                 <function>EaseInOutQuad</function>
                                 <target>0,0</target>
                                 <target-mode>Absolute</target-mode>
-                                <duration>0.3</duration>
+                                <duration>0.25</duration>
                                 <enforce-mode>Compromise</enforce-mode>
                             </properties>
                         </behavior-instance>
