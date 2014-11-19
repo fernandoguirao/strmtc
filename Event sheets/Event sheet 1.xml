@@ -6,6 +6,7 @@
         <variable constant="0" name="planetax" sid="7621718522536887" static="0" type="number">0</variable>
         <variable constant="0" name="NumMatchesFound" sid="7279782664981766" static="0" type="number">0</variable>
         <variable constant="0" name="PUID" sid="3135643539461835" static="0" type="number">0</variable>
+        <variable constant="0" name="points" sid="8992467995722343" static="0" type="number">0</variable>
         <variable constant="1" name="SPAWNX" sid="9685906282399814" static="0" type="number">321</variable>
         <variable constant="1" name="SPAWNY" sid="2826199967580587" static="0" type="number">760</variable>
         <variable constant="0" name="Angulo" sid="9662210153354986" static="0" type="number">0</variable>
@@ -56,6 +57,9 @@
             <actions>
                 <action id="5" name="Set frame" sid="6058602151448663" type="Planeta">
                     <param id="0" name="Frame number">(Planeta.Color-1)</param>
+                </action>
+                <action id="0" name="Set text" sid="7764326381202058" type="points">
+                    <param id="0" name="Text">points</param>
                 </action>
             </actions>
             <sub-events>
@@ -573,8 +577,8 @@
                             <conditions>
                                 <condition id="-14" name="Compare variable" sid="5331935726763793" type="System">
                                     <param id="0" name="Variable">NumMatchesFound</param>
-                                    <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Value">3</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">2</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -627,6 +631,10 @@
                         </condition>
                     </conditions>
                     <actions>
+                        <action id="0" name="Call function" sid="2426137820753532" type="funcion">
+                            <param id="0" name="Name">&quot;GivePoints&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
                         <action id="-16" name="Wait" sid="4736766360934496" type="System">
                             <param id="0" name="Seconds">0.1</param>
                         </action>
@@ -742,6 +750,28 @@
                     </sub-events>
                 </event-block>
             </sub-events>
+        </event-block>
+        <event-block disabled="1" sid="8883866557688838">
+            <conditions>
+                <condition id="0" name="On function" sid="426089996741812" type="funcion">
+                    <param id="0" name="Name">&quot;GivePoints&quot;</param>
+                </condition>
+                <condition id="-11" name="For Each" sid="8298382534802061" type="System">
+                    <param id="0" name="Object">Planeta</param>
+                </condition>
+                <condition id="-8" name="Is boolean instance variable set" sid="4855302164377215" type="Planeta">
+                    <param id="0" name="Instance variable">IsMatched</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="4602389087050794" type="System">
+                    <param id="0" name="Variable">points</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="0" name="Set text" sid="8861267077540835" type="points">
+                    <param id="0" name="Text">points</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>
