@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
+        <variable constant="0" name="planetax" sid="7621718522536887" static="0" type="number">0</variable>
         <variable constant="0" name="NumMatchesFound" sid="7279782664981766" static="0" type="number">0</variable>
         <variable constant="0" name="PUID" sid="3135643539461835" static="0" type="number">0</variable>
         <variable constant="1" name="SPAWNX" sid="9685906282399814" static="0" type="number">321</variable>
@@ -442,17 +443,21 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action behavior="LiteTween" id="3" name="Set target" sid="7672088243957951" type="Planeta">
+                        <action id="-3" name="Set position" sid="9398406892015439" type="Planeta">
+                            <param id="0" name="X">PlanetPositions.At(0,0)</param>
+                            <param id="1" name="Y">PlanetPositions.At(0,1)</param>
+                        </action>
+                        <action behavior="LiteTween" disabled="1" id="3" name="Set target" sid="7672088243957951" type="Planeta">
                             <param id="0" name="Target is">0</param>
                             <param id="1" name="Relativity">0</param>
                             <param id="2" name="Value">PlanetPositions.At(0,0)</param>
                         </action>
-                        <action behavior="LiteTween" id="3" name="Set target" sid="8998231849960032" type="Planeta">
+                        <action behavior="LiteTween" disabled="1" id="3" name="Set target" sid="8998231849960032" type="Planeta">
                             <param id="0" name="Target is">1</param>
                             <param id="1" name="Relativity">0</param>
                             <param id="2" name="Value">PlanetPositions.At(0,1)</param>
                         </action>
-                        <action behavior="LiteTween" id="10" name="Start" sid="6745573274542691" type="Planeta">
+                        <action behavior="LiteTween" disabled="1" id="10" name="Start" sid="6745573274542691" type="Planeta">
                             <param id="0" name="Start Mode">0</param>
                             <param id="1" name="Force use current">0</param>
                         </action>
@@ -470,30 +475,62 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-3" name="Set position" sid="2154724364690618" type="Planeta">
+                        <action disabled="1" id="-3" name="Set position" sid="2154724364690618" type="Planeta">
                             <param id="0" name="X">PlanetPositions.At(0,0)</param>
                             <param id="1" name="Y">PlanetPositions.At(0,1)</param>
                         </action>
-                        <action behavior="LiteTween" id="3" name="Set target" sid="5406887475584501" type="Planeta">
+                        <action id="-3" name="Set position" sid="684335573346713" type="Planeta">
+                            <param id="0" name="X">PlanetPositions.At(1,0)</param>
+                            <param id="1" name="Y">PlanetPositions.At(1,1)</param>
+                        </action>
+                        <action behavior="LiteTween" disabled="1" id="3" name="Set target" sid="5406887475584501" type="Planeta">
                             <param id="0" name="Target is">0</param>
                             <param id="1" name="Relativity">0</param>
                             <param id="2" name="Value">PlanetPositions.At(1,0)</param>
                         </action>
-                        <action behavior="LiteTween" id="3" name="Set target" sid="2339992978442509" type="Planeta">
+                        <action behavior="LiteTween" disabled="1" id="3" name="Set target" sid="2339992978442509" type="Planeta">
                             <param id="0" name="Target is">1</param>
                             <param id="1" name="Relativity">0</param>
                             <param id="2" name="Value">PlanetPositions.At(1,1)</param>
                         </action>
-                        <action behavior="LiteTween" id="10" name="Start" sid="417389478827672" type="Planeta">
+                        <action behavior="LiteTween" disabled="1" id="10" name="Start" sid="417389478827672" type="Planeta">
                             <param id="0" name="Start Mode">0</param>
                             <param id="1" name="Force use current">0</param>
                         </action>
-                        <action id="0" name="Clear" sid="2775095518544293" type="PlanetPositions" />
+                        <action disabled="1" id="0" name="Clear" sid="2775095518544293" type="PlanetPositions" />
+                        <action id="3" name="Set at XY" sid="6951496347089068" type="PlanetPositions">
+                            <param id="0" name="X">0</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">0</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="1450681591439349" type="PlanetPositions">
+                            <param id="0" name="X">0</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Value">0</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="8571416879321889" type="PlanetPositions">
+                            <param id="0" name="X">1</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">0</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="3297525283510164" type="PlanetPositions">
+                            <param id="0" name="X">0</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">0</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="7839819981211914">
                     <conditions />
                     <actions>
+                        <action id="-9" name="Set value" sid="5564262478079971" type="System">
+                            <param id="0" name="Variable">NumMatchesFound</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="600250775194478" type="Planeta">
+                            <param id="0" name="Instance variable">IsMatched</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
                         <action id="0" name="Call function" sid="457265303587072" type="funcion">
                             <param id="0" name="Name">&quot;FindMatches&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
@@ -502,7 +539,7 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <event-block sid="4953568099020852">
+        <event-block disabled="1" sid="4953568099020852">
             <conditions>
                 <condition id="0" name="On function" sid="2241832897420428" type="funcion">
                     <param id="0" name="Name">&quot;FindMatches&quot;</param>
@@ -510,11 +547,11 @@
             </conditions>
             <actions>
                 <action id="0" name="Log Text" sid="4019349456031056" type="ChromeConsole">
-                    <param id="0" name="Data">&quot;Go Función match&quot;</param>
+                    <param id="0" name="Data">NumMatchesFound</param>
                 </action>
             </actions>
             <sub-events>
-                <event-block sid="3943872645634016">
+                <event-block disabled="1" sid="3943872645634016">
                     <conditions>
                         <condition id="-11" name="For Each" sid="7750703492236524" type="System">
                             <param id="0" name="Object">Planeta</param>
@@ -534,12 +571,12 @@
                         </action>
                     </actions>
                     <sub-events>
-                        <event-block sid="7823072197019259">
+                        <event-block disabled="1" sid="7823072197019259">
                             <conditions>
-                                <condition id="-8" name="Compare two values" sid="1975373463833154" type="System">
-                                    <param id="0" name="First value">NumMatchesFound</param>
+                                <condition id="-14" name="Compare variable" sid="1975373463833154" type="System">
+                                    <param id="0" name="Variable">NumMatchesFound</param>
                                     <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Second value">3</param>
+                                    <param id="2" name="Value">3</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -551,7 +588,7 @@
                         </event-block>
                     </sub-events>
                 </event-block>
-                <event-block sid="5771239660471908">
+                <event-block disabled="1" sid="5771239660471908">
                     <conditions>
                         <condition id="-8" name="Is boolean instance variable set" sid="4137514890442836" type="Planeta">
                             <param id="0" name="Instance variable">IsMatched</param>
@@ -569,7 +606,7 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <event-block sid="1799527375442507">
+        <event-block disabled="1" sid="1799527375442507">
             <conditions>
                 <condition id="0" name="On function" sid="9351086291732347" type="funcion">
                     <param id="0" name="Name">&quot;CheckMatches&quot;</param>
@@ -581,11 +618,11 @@
                 </action>
             </actions>
             <sub-events>
-                <event-block sid="3619001302460587">
+                <event-block disabled="1" sid="3619001302460587">
                     <conditions>
                         <condition id="-1" name="Compare X" sid="5684235452678812" type="Planeta">
                             <param id="0" name="Comparison">0</param>
-                            <param id="1" name="X co-ordinate">funcion.Param(0) + ((Planeta.Width+12))</param>
+                            <param id="1" name="X co-ordinate">funcion.Param(0) + (Planeta.Width+12)</param>
                         </condition>
                         <condition id="-7" name="Compare instance variable" sid="4702671321036352" type="Planeta">
                             <param id="0" name="Instance variable">Color</param>
@@ -602,16 +639,16 @@
                             <param id="0" name="Variable">NumMatchesFound</param>
                             <param id="1" name="Value">1</param>
                         </action>
-                        <action id="-16" name="Set opacity" sid="6138734370341376" type="Planeta">
+                        <action disabled="1" id="-16" name="Set opacity" sid="6138734370341376" type="Planeta">
                             <param id="0" name="Opacity">20</param>
                         </action>
                         <action id="0" name="Call function" sid="4230417547986395" type="funcion">
                             <param id="0" name="Name">&quot;CheckMatches&quot;</param>
-                            <param id="1" name="Parameter {n}">funcion.Param(0) + ((Planeta.Width+12)){###}funcion.Param(1){###}funcion.Param(2)</param>
+                            <param id="1" name="Parameter {n}">funcion.Param(0) + (Planeta.Width+12){###}funcion.Param(1){###}funcion.Param(2)</param>
                         </action>
                     </actions>
                     <sub-events>
-                        <event-block sid="7661936041124582">
+                        <event-block disabled="1" sid="7661936041124582">
                             <conditions>
                                 <condition id="-8" name="Compare two values" sid="6412416617307226" type="System">
                                     <param id="0" name="First value">NumMatchesFound</param>
@@ -626,6 +663,174 @@
                                 </action>
                                 <action id="0" name="Log Text" sid="59488119572661" type="ChromeConsole">
                                     <param id="0" name="Data">&quot;MATCH&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="4010720515409463">
+            <conditions>
+                <condition id="0" name="On function" sid="6996059057297057" type="funcion">
+                    <param id="0" name="Name">&quot;FindMatches&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="9508730152650553">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="5992892324930393" type="System">
+                            <param id="0" name="Object">Planeta</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="2616484217493743" type="funcion">
+                            <param id="0" name="Name">&quot;compruebay&quot;</param>
+                            <param id="1" name="Parameter {n}">Planeta.X{###}Planeta.Y{###}Planeta.Color</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="6919850893733347" type="System">
+                            <param id="0" name="Variable">NumMatchesFound</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6998339790982848">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="9280710104300843" type="System">
+                            <param id="0" name="Object">Planeta</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="5782761812530014" type="funcion">
+                            <param id="0" name="Name">&quot;compruebax&quot;</param>
+                            <param id="1" name="Parameter {n}">Planeta.X{###}Planeta.Y{###}Planeta.Color</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="9155403818244556" type="System">
+                            <param id="0" name="Variable">NumMatchesFound</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6328659465943208">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="2849629300113869" type="Planeta">
+                            <param id="0" name="Instance variable">IsMatched</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="4736766360934496" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action disabled="1" id="-16" name="Set opacity" sid="7356336312520959" type="Planeta">
+                            <param id="0" name="Opacity">20</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="3418674803060209" type="Planeta" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="5222137969332554">
+            <conditions>
+                <condition id="0" name="On function" sid="632439124645504" type="funcion">
+                    <param id="0" name="Name">&quot;compruebax&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="7710906899113237">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="1147478273411543" type="Planeta">
+                            <param id="0" name="Instance variable">Color</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">funcion.Param(2)</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="9296744568653278" type="Planeta">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="X co-ordinate">funcion.Param(0)</param>
+                        </condition>
+                        <condition id="-2" name="Compare Y" sid="5168442155282546" type="Planeta">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Y co-ordinate">funcion.Param(1)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="7587250734242145" type="System">
+                            <param id="0" name="Variable">NumMatchesFound</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="1939689913445464" type="funcion">
+                            <param id="0" name="Name">&quot;compruebax&quot;</param>
+                            <param id="1" name="Parameter {n}">Planeta.X + Planeta.width + 12{###}Planeta.Y{###}Planeta.Color</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="2376253000284743">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="2866318987472806" type="System">
+                                    <param id="0" name="Variable">NumMatchesFound</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="7261008582983437" type="Planeta">
+                                    <param id="0" name="Instance variable">IsMatched</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="5498085637709379">
+            <conditions>
+                <condition id="0" name="On function" sid="2178616688029458" type="funcion">
+                    <param id="0" name="Name">&quot;compruebay&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="5856203534868131">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="9246376861516037" type="Planeta">
+                            <param id="0" name="Instance variable">Color</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">funcion.Param(2)</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="5032733558687082" type="Planeta">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="X co-ordinate">funcion.Param(0)</param>
+                        </condition>
+                        <condition id="-2" name="Compare Y" sid="9544620668453613" type="Planeta">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Y co-ordinate">funcion.Param(1)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="7757143102516047" type="System">
+                            <param id="0" name="Variable">NumMatchesFound</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="894620443809638" type="funcion">
+                            <param id="0" name="Name">&quot;compruebay&quot;</param>
+                            <param id="1" name="Parameter {n}">Planeta.X{###}Planeta.Y + Planeta.width + 12{###}Planeta.Color</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="9631172451780034">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="5872509647684415" type="System">
+                                    <param id="0" name="Variable">NumMatchesFound</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="8356044611840143" type="Planeta">
+                                    <param id="0" name="Instance variable">IsMatched</param>
+                                    <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
                         </event-block>

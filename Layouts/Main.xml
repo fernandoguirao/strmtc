@@ -146,7 +146,7 @@
                                 <tweened-property>Position</tweened-property>
                                 <function>EaseInOutQuad</function>
                                 <target>0,0</target>
-                                <target-mode>Relative</target-mode>
+                                <target-mode>Absolute</target-mode>
                                 <duration>0.3</duration>
                                 <enforce-mode>Compromise</enforce-mode>
                             </properties>
