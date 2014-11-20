@@ -411,7 +411,11 @@
                     <param id="0" name="Name">&quot;SwapPlanets&quot;</param>
                 </condition>
             </conditions>
-            <actions />
+            <actions>
+                <action behavior="DragDrop" id="0" name="Set enabled" sid="3319091806383035" type="Limite">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
             <sub-events>
                 <event-block sid="4787611378237789">
                     <conditions>
@@ -437,6 +441,9 @@
                         <action id="-3" name="Set position" sid="4011139520118018" type="Planeta">
                             <param id="0" name="X">-80</param>
                             <param id="1" name="Y">-80</param>
+                        </action>
+                        <action id="0" name="Log Text" sid="7082524884033033" type="ChromeConsole">
+                            <param id="0" name="Data">Planeta.UID</param>
                         </action>
                     </actions>
                 </event-block>
@@ -641,6 +648,14 @@
                         <action id="-9" name="Destroy" sid="3418674803060209" type="Planeta" />
                     </actions>
                 </event-block>
+                <event-block sid="7237742137586431">
+                    <conditions />
+                    <actions>
+                        <action behavior="DragDrop" id="0" name="Set enabled" sid="7320395376061353" type="Limite">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-block>
         <event-block sid="5222137969332554">
@@ -751,7 +766,7 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <event-block disabled="1" sid="8883866557688838">
+        <event-block sid="8883866557688838">
             <conditions>
                 <condition id="0" name="On function" sid="426089996741812" type="funcion">
                     <param id="0" name="Name">&quot;GivePoints&quot;</param>
@@ -770,6 +785,25 @@
                 </action>
                 <action id="0" name="Set text" sid="8861267077540835" type="points">
                     <param id="0" name="Text">points</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1312934367751991">
+            <conditions>
+                <condition id="9" inverted="1" name="Is overlapping at offset" sid="3619766064559871" type="Planeta">
+                    <param id="0" name="Object">Planeta</param>
+                    <param id="1" name="Offset X">0</param>
+                    <param id="2" name="Offset Y">48</param>
+                </condition>
+                <condition id="-2" name="Compare Y" sid="5307365933469334" type="Planeta">
+                    <param id="0" name="Comparison">3</param>
+                    <param id="1" name="Y co-ordinate">SPAWNY - 1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-23" name="Move at angle" sid="9656344058941327" type="Planeta">
+                    <param id="0" name="Angle">90</param>
+                    <param id="1" name="Distance">(Planeta.Width + 12)/2</param>
                 </action>
             </actions>
         </event-block>
