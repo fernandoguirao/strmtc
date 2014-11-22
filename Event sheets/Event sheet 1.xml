@@ -645,6 +645,10 @@
                         <action id="-16" name="Wait" sid="4736766360934496" type="System">
                             <param id="0" name="Seconds">0.1</param>
                         </action>
+                        <action id="0" name="Call function" sid="4110226664576329" type="funcion">
+                            <param id="0" name="Name">&quot;baja&quot;</param>
+                            <param id="1" name="Parameter {n}">Planeta.Y</param>
+                        </action>
                         <action id="-9" name="Destroy" sid="3418674803060209" type="Planeta" />
                     </actions>
                 </event-block>
@@ -788,24 +792,61 @@
                 </action>
             </actions>
         </event-block>
-        <event-block sid="1312934367751991">
+        <event-block sid="479150557708673">
             <conditions>
-                <condition id="9" inverted="1" name="Is overlapping at offset" sid="3619766064559871" type="Planeta">
+                <condition id="9" inverted="1" name="Is overlapping at offset" sid="4762258399279658" type="Planeta">
                     <param id="0" name="Object">Planeta</param>
                     <param id="1" name="Offset X">0</param>
-                    <param id="2" name="Offset Y">48</param>
+                    <param id="2" name="Offset Y">12</param>
                 </condition>
-                <condition id="-2" name="Compare Y" sid="5307365933469334" type="Planeta">
+                <condition id="-2" name="Compare Y" sid="8457773597046774" type="Planeta">
                     <param id="0" name="Comparison">3</param>
                     <param id="1" name="Y co-ordinate">SPAWNY - 1</param>
                 </condition>
             </conditions>
             <actions>
-                <action id="-23" name="Move at angle" sid="9656344058941327" type="Planeta">
+                <action id="-23" name="Move at angle" sid="3369921463071106" type="Planeta">
                     <param id="0" name="Angle">90</param>
-                    <param id="1" name="Distance">(Planeta.Width + 12)/2</param>
+                    <param id="1" name="Distance">10</param>
                 </action>
             </actions>
+        </event-block>
+        <event-block sid="9239097498358687">
+            <conditions>
+                <condition id="0" name="On function" sid="3518521783249532" type="funcion">
+                    <param id="0" name="Name">&quot;baja&quot;</param>
+                </condition>
+                <condition id="-2" name="Compare Y" sid="6808703528146635" type="Planeta">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="Y co-ordinate">funcion.Param(0)</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="9512707821231771">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="2431716582712343" type="System">
+                            <param id="0" name="Object">Planeta</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="7214782747359207" type="Planeta">
+                            <param id="0" name="Target is">0</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">Planeta.X</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="5444204519360225" type="Planeta">
+                            <param id="0" name="Target is">1</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">funcion.Param(0)</param>
+                        </action>
+                        <action behavior="LiteTween" id="10" name="Start" sid="7292990874429892" type="Planeta">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>
