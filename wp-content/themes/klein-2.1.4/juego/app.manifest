@@ -1,0 +1,19 @@
+﻿{
+	"name": "New project",
+	"start_url": "http://localhost:8888/",
+	"display": "standalone",
+	"orientation": "any",
+	"icons": [{
+		"src": "http://localhost:8888/wp-content/themes/klein-2.1.4/juego/icon-16.png",
+		"sizes": "16x16",
+	}, {
+		"src": "http://localhost:8888/wp-content/themes/klein-2.1.4/juego/icon-32.png",
+		"sizes": "32x32",
+	}, {
+		"src": "http://localhost:8888/wp-content/themes/klein-2.1.4/juego/icon-128.png",
+		"sizes": "128x128",
+	}, {
+		"src": "http://localhost:8888/wp-content/themes/klein-2.1.4/juego/icon-256.png",
+		"sizes": "256x256",
+	}]
+}

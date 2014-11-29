@@ -21,9 +21,9 @@
 
 <?php wp_footer(); ?>
 
-  <script type='text/javascript'>//<![CDATA[
-  document.write("<script async src='//HOST:3000/browser-sync-client.1.3.7.js'><\/script>".replace(/HOST/g, location.hostname));
-  //]]></script>
+<script type='text/javascript'>//<![CDATA[
+document.write("<script async src='//HOST:3000/browser-sync-client.1.3.7.js'><\/script>".replace(/HOST/g, location.hostname));
+//]]></script>
 
 </body>
 </html>
